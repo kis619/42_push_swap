@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:30:39 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/01/28 17:51:47 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/02 13:13:31 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,10 @@ void	print_list(t_list *node)
 		printf(" %d ", node->content);
 		node = node->next;
 	}
+	printf("\n");
+}
+
+void print_func_name(const char *str)
+{
+	write(1, ft_strjoin(str, "\n"), ft_strlen(str) + 1);
 }

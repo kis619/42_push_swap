@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 20:10:59 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/01/28 18:04:56 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/02 11:18:22 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int main ()
 	ft_lstadd_back(&node1b, ft_lstnew(71));
 	print_list(node1b);
 	printf("\n________________\n");
-	// rrr(&node1, &node1b);
+	ss(&node1, &node1b);
 	// printList(node1);
-	pb(&node1, &node1b);
+	// pb(&node1, &node1b);
 	printf("\n");
 	print_list(node1);
 	printf("\n");

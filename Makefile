@@ -13,7 +13,7 @@
 NAME = push_swap
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
-SRCs = main.c input_validation.c
+SRCs = main.c input_validation.c linked_lists.c linked_lists2.c operations_a.c operations_b.c operations_combined.c utils.c
 OBJs := $(SRCs:.c=.o)
 LIBRARY = libft.a
 LIBPATH = libft
@@ -40,3 +40,7 @@ test:
 
 optest:
 	gcc test_operations.c linked_lists2.c linked_lists.c operations_a.c operations_b.c operations_combined.c utils.c input_validation.c libft/libft.a
+
+sort5:
+	gcc sort_5.c linked_lists2.c linked_lists.c operations_a.c operations_b.c operations_combined.c utils.c input_validation.c libft/libft.a
+

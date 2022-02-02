@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 14:10:40 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/01/28 18:03:34 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/02 11:55:34 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 /* Checks if the input consists only of integers
 	returns -1 for invalid input
@@ -52,6 +53,7 @@ t_list	*ft_lstpenultimate(t_list *lst);
 */
 void	print_list(t_list *node);
 
+void print_func_name(const char *str);
 /*
 	Input: list of strings.
 	Applies atoi to the elements, makes nodes and links them in a Linked list.
@@ -59,12 +61,12 @@ void	print_list(t_list *node);
 t_list	*get_initial_input(char *argv[]);
 
 //OPERATIONS
-void	sa(t_list *stack_a);
-void	ra(t_list **stack_a);
-void	rra(t_list **stack_a);
-void	sb(t_list *stack_b);
-void	rb(t_list **stack_b);
-void	rrb(t_list **stack_b);
+void	sa(t_list *stack_a, int called);
+void	ra(t_list **stack_a, int called);
+void	rra(t_list **stack_a, int called);
+void	sb(t_list *stack_b, int called);
+void	rb(t_list **stack_b, int called);
+void	rrb(t_list **stack_b, int called);
 void	ss(t_list **stack_a, t_list **stack_b);
 void	rr(t_list **stack_a, t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);

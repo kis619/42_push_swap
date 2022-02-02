@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:05:55 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/01/28 17:55:14 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/02 13:31:20 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ t_list	*ft_lstnew(int content)
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (*lst != 0)
-		new->next = *lst;
+	// if (*lst != 0)
+	// 	new->next = *lst;
+	new->next = *lst;
 	*lst = new;
 }
 
