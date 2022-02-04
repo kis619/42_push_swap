@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:30:39 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/02 13:13:31 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/04 23:00:21 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,23 @@ void	print_list(t_list *node)
 void print_func_name(const char *str)
 {
 	write(1, ft_strjoin(str, "\n"), ft_strlen(str) + 1);
+}
+
+int sorted(t_list *stack)
+{
+	int num;
+
+	num = stack->content;
+	while (stack)
+	{
+		if (stack->content < num)
+		{
+			// printf("Stack is not sorted\n");
+			return (0);
+		}
+		num = stack->content;
+		stack = stack->next;
+	}
+	// printf("Stack is sorted\n");
+	return (1);
 }

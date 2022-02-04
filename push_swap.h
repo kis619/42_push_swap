@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 14:10:40 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/02 11:55:34 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/04 23:18:03 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+
 
 /* Checks if the input consists only of integers
 	returns -1 for invalid input
@@ -72,5 +73,15 @@ void	rr(t_list **stack_a, t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
 void	pa(t_list **stack_a, t_list **stack_b);
 void	pb(t_list **stack_a, t_list **stack_b);
+
+
+
+//////////////////MIGHT HAVE TO DELETE
+int sorted(t_list *stack);
+int top_is_smallest(t_list* stack);
+int mid_is_smallest(t_list *stack);
+void sort_5(t_list** stack_a, t_list** stack_b);
+void sort_2_3_4(t_list** stack_a, t_list** stack_b);
+///////////////////MIGHT HAVE TO DELETE
 
 #endif
