@@ -6,12 +6,16 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:30:39 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/04 23:00:21 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/05 10:29:05 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
+	Input: list of strings.
+	Applies atoi to the elements, makes nodes and links them in a Linked list.
+*/
 t_list	*get_initial_input(char *argv[])
 {
 	int		i;
@@ -29,6 +33,9 @@ t_list	*get_initial_input(char *argv[])
 	return (new_list);
 }
 
+/* 
+	prints the content of all nodes
+*/
 void	print_list(t_list *node)
 {
 	while (node != NULL)

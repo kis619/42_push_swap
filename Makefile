@@ -44,3 +44,5 @@ optest:
 sort5:
 	gcc sort_5.c linked_lists2.c linked_lists.c operations_a.c operations_b.c operations_combined.c utils.c input_validation.c libft/libft.a
 
+
+

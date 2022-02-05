@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:05:55 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/02 13:31:20 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/05 10:47:07 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_list	*ft_lstnew(int content)
 	if (!new_node)
 		return (NULL);
 	new_node->content = content;
+	new_node->idx = -1;
 	new_node->next = NULL;
 	return (new_node);
 }

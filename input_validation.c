@@ -6,12 +6,16 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 14:12:10 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/01/28 17:58:46 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/05 10:27:39 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
+	returns 0 for non-integers
+	returns 1 for integers
+*/
 int	is_an_integer(const char *str_num)
 {
 	int	len;
@@ -60,6 +64,11 @@ int	there_are_repeats(char *argv[])
 	return (0);
 }
 
+/* 
+	Checks if the input consists only of integers
+	returns -1 for invalid input
+	returns 0 for valid input
+*/
 int	validate_input(char *argv[])
 {
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 14:10:40 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/04 23:18:03 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/05 12:52:59 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,16 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
 
-
-/* Checks if the input consists only of integers
-	returns -1 for invalid input
-	returns 0 for valid input
-*/
 int		validate_input(char *l[]);
-
-/*
-	returns 0 for non-integers
-	returns 1 for integers
-*/
 int		is_an_integer(const char *str_num);
 
 ///linked_lists
 typedef struct s_list
 {
 	int				content;
+	int				idx;
 	struct s_list	*next;
 }	t_list;
 
@@ -49,16 +41,10 @@ int		ft_lstsize(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new_node);
 t_list	*ft_lstnew(int content);
 t_list	*ft_lstpenultimate(t_list *lst);
-/* 
-	prints the content of all nodes
-*/
-void	print_list(t_list *node);
 
+
+void	print_list(t_list *node);
 void print_func_name(const char *str);
-/*
-	Input: list of strings.
-	Applies atoi to the elements, makes nodes and links them in a Linked list.
-*/
 t_list	*get_initial_input(char *argv[]);
 
 //OPERATIONS
