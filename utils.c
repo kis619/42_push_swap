@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:30:39 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/06 21:57:29 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/06 23:35:53 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,56 @@ t_list	*get_initial_input(char *argv[])
 	return (new_list);
 }
 
-/* 
-	prints the content of all nodes
-*/
-void	print_list(t_list *node)
+void	print_func_name(const char *str)
 {
-	while (node != NULL)
-	{
-		printf(" %d ", node->content);
-		node = node->next;
-	}
-	printf("\n");
+	char	*word;
+
+	word = ft_strjoin(str, "\n");
+	write(1, word, ft_strlen(str) + 1);
+	free(word);
 }
 
-void print_func_name(const char *str)
-{
-	write(1, ft_strjoin(str, "\n"), ft_strlen(str) + 1);
-}
-
-int curr_prox_is_smaller(int n1, int n2)
+int	curr_prox_is_smaller(int n1, int n2)
 {
 	return (ft_abs(n1) < ft_abs(n2));
 }
+
+int	time_to_swap(t_list *stack)
+{
+	t_list	first;
+	t_list	second;
+
+	first.next = &second;
+	first.idx = stack->next->idx;
+	second.next = stack->next->next;
+	second.idx = stack->idx;
+	if (len_biggest_loop(stack, 0) < len_biggest_loop(&first, 0))
+		return (1);
+	return (0);
+}
+
+t_data	fill_data(t_list **stack_a)
+{
+	t_data	data;
+
+	data.stack_size = ft_lstsize(*stack_a);
+	len_biggest_loop(*stack_a, 1);
+	data.groups = big(1, data.stack_size / 150);
+	data.group_size = data.stack_size / data.groups;
+	data.cur_group = 1;
+	data.r_b = 0;
+	return (data);
+}
+
+// /* 
+// 	prints the content of all nodes
+// */
+// void	print_list(t_list *node)
+// {
+// 	while (node != NULL)
+// 	{
+// 		printf(" %d ", node->content);
+// 		node = node->next;
+// 	}
+// 	printf("\n");
+// }

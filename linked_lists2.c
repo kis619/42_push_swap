@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:53:19 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/06 21:12:51 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/07 00:14:07 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,15 @@ void	ft_lstclear(t_list **lst, void (*del)(int))
 	*lst = 0;
 }
 
-void	ft_lstiter(t_list *lst, void (*f)(int))
+void	free_stack(t_list **list)
 {
-	while (lst != 0 && f != 0)
+	t_list	*next;
+
+	while (*list)
 	{
-		f(lst->content);
-		lst = lst->next;
+		next = (*list)->next;
+		free(*list);
+		(*list) = next;
 	}
 }
 

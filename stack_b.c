@@ -19,12 +19,12 @@ int	distance_to_b(int idx, int size)
 	return (idx);
 }
 
-int distance_to_a(t_list *stack_a, int idx, int size)
+int	distance_to_a(t_list *stack_a, int idx, int size)
 {
-	t_list *temp;
-	t_list *last;
-	int curr_and_min[2];
-	int i;
+	t_list	*temp;
+	t_list	*last;
+	int		curr_and_min[2];
+	int		i;
 
 	i = 0;
 	temp = stack_a;
@@ -48,15 +48,14 @@ int distance_to_a(t_list *stack_a, int idx, int size)
 	return (curr_and_min[1]);
 }
 
-void initialise_b(t_list **stack_a, t_list **stack_b, int argc)
+void	initialise_b(t_list **stack_a, t_list **stack_b, int argc)
 {
-	int r_a;
-	int r_b;
+	int	r_a_b[2];
 
 	while (*stack_b)
 	{
-		calculate_b_rotation(*stack_a, *stack_b, &r_a, &r_b, argc);
-		choose_rotation(stack_a, stack_b, r_a, r_b);
+		calc_b_r(*stack_a, *stack_b, r_a_b, argc);
+		choose_rotation(stack_a, stack_b, r_a_b[0], r_a_b[1]);
 		pa(stack_a, stack_b);
 	}
 	choose_rotation(stack_a, stack_b, distance_to_top(*stack_a, 0), 0);

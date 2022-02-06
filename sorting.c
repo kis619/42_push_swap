@@ -12,69 +12,51 @@
 
 #include "push_swap.h"
 
-void sort(t_list **stack_a, t_list **stack_b, int argc)
-{
-	int stack_size;
-	int groups;
-	int group_size;
-	int cur_group = 1;
-	int distance_top;
-	int r_a;
-	int r_b = 0;
-	t_list *temp;
-
-	stack_size = ft_lstsize(*stack_a);
-	len_biggest_loop(*stack_a, 1);
-	groups = get_bigger_num(1, stack_size / 150);
-	group_size = stack_size / groups;
-	while (cur_group <= groups + 1)
-	{
-		temp = closest_to_top(*stack_a, cur_group, group_size);
-		if (temp == NULL)
-		{	
-			cur_group++;
-			continue ;
-		}
-		distance_top = distance_to_top(*stack_a, temp->idx);
-		if (time_to_swap(*stack_a))
-		{
-			sa(stack_a, 0);
-			len_biggest_loop(*stack_a, 1);
-		}
-		else if (!(*stack_a)->marked && distance_top == 0)
-		{
-			pb(stack_a, stack_b);
-			stack_size--;
-		}
-		else if (cur_group == 1)
-			rr(stack_a, stack_b);
-		else
-		{
-			r_a = get_bigger_num(-1, distance_top);
-			r_a = get_smaller_num(1, r_a);
-			choose_rotation(stack_a, stack_b, r_a, r_b);
-		}
-	}
-	initialise_b(stack_a, stack_b, argc);
-}
-
-int find_loops(t_list *list, t_list *start, int set)
+void	sort(t_list **s_a, t_list **s_b, t_data data, int argc)
 {
 	t_list	*temp;
-	int max_tag;
-	int count;
 
-	max_tag = -1;
-	count = 0;
+	while (data.cur_group <= data.groups + 1)
+	{
+		temp = closest_to_top(*s_a, data.cur_group, data.group_size);
+		if (temp == NULL && data.cur_group++)
+			continue ;
+		data.d_top = distance_to_top(*s_a, temp->idx);
+		if (time_to_swap(*s_a))
+		{
+			sa(s_a, 0);
+			len_biggest_loop(*s_a, 1);
+		}
+		else if (!(*s_a)->marked && data.d_top == 0)
+		{
+			pb(s_a, s_b);
+			data.stack_size--;
+		}
+		else if (data.cur_group == 1)
+			rr(s_a, s_b);
+		else
+			choose_rotation(s_a, s_b, small(1, big(-1, data.d_top)), data.r_b);
+	}
+	initialise_b(s_a, s_b, argc);
+}
+
+int	find_loops(t_list *list, t_list *start, int set)
+{
+	t_list	*temp;
+	int		max;
+	int		counter;
+
+	max = -1;
+	counter = 0;
 	temp = start;
 	while (temp)
 	{
 		if (set)
 			temp->marked = 0;
-		if (temp->idx > max_tag)
+		if (temp->idx > max)
 		{
-			max_tag = temp->idx;
-			count++;
+			max = temp->idx;
+			counter++;
 			if (set)
 				temp->marked = 1;
 		}
@@ -84,8 +66,7 @@ int find_loops(t_list *list, t_list *start, int set)
 		if (temp == start)
 			break ;
 	}
-	start = list;
-	return (count);
+	return (counter);
 }
 
 int	len_biggest_loop(t_list *start, int set)
@@ -112,17 +93,17 @@ int	len_biggest_loop(t_list *start, int set)
 	return (max);
 }
 
-int distance_to_top(t_list *stack_a, int idx)
+int	distance_to_top(t_list *stack_a, int idx)
 {
-	int len;
-	int i;
+	int	len;
+	int	i;
 
 	i = 0;
-	len  = ft_lstsize(stack_a); 
+	len = ft_lstsize(stack_a);
 	while (stack_a)
 	{
 		if (stack_a->idx == idx)
-			break;
+			break ;
 		i++;
 		stack_a = stack_a->next;
 	}
@@ -131,12 +112,12 @@ int distance_to_top(t_list *stack_a, int idx)
 	return (i);
 }
 
-t_list *closest_to_top(t_list *stack, int group_n, int group_size)
+t_list	*closest_to_top(t_list *stack, int group_n, int group_size)
 {
-	t_list *closest;
-	t_list *temp;
-	int proximity;
-	int cur_prox;
+	t_list	*closest;
+	t_list	*temp;
+	int		proximity;
+	int		cur_prox;
 
 	proximity = INT_MAX;
 	closest = NULL;
@@ -157,19 +138,4 @@ t_list *closest_to_top(t_list *stack, int group_n, int group_size)
 		temp = temp->next;
 	}
 	return (closest);
-}
-
-
-int time_to_swap(t_list *stack)
-{
-	t_list first;
-	t_list second;
-
-	first.next = &second;
-	first.idx = stack->next->idx;
-	second.next = stack->next->next;
-	second.idx = stack->idx;
-	if (len_biggest_loop(stack, 0) < len_biggest_loop(&first, 0))
-		return (1);
-	return (0);
 }

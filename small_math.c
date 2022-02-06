@@ -12,21 +12,21 @@
 
 #include "push_swap.h"
 
-int get_bigger_num(int n1, int n2)
+int	big(int n1, int n2)
 {
 	if (n1 > n2)
 		return (n1);
 	return (n2);
 }
 
-int get_smaller_num(int n1, int n2)
+int	small(int n1, int n2)
 {
 	if (n1 > n2)
 		return (n2);
 	return (n1);
 }
 
-int ft_abs(int num)
+int	ft_abs(int num)
 {
 	if (num < 0)
 		num *= -1;

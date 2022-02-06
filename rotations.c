@@ -53,35 +53,29 @@ void	choose_rotation(t_list **stack_a, t_list **stack_b, int r_a, int r_b)
 	}
 }
 
-void	calculate_b_rotation(t_list *stack_a, t_list *stack_b, int *r_a, int *r_b, int argc)
+void	calc_b_r(t_list *stack_a, t_list *stack_b, int r_a_b[2], int argc)
 {
-	
-	
-	int		max_dist = INT_MAX;
-	int		i;
-	int		total_dist;
-	int		dist_b;
-	int		dist_a;
-	int		len_a;
 	t_list	*temp;
+	t_dist	dist;
 
+	dist.max_dist = INT_MAX;
 	temp = stack_b;
-	len_a = ft_lstsize(stack_a);
-	i = 0;
+	dist.len_a = ft_lstsize(stack_a);
+	dist.i = 0;
 	while (temp)
 	{
-		dist_b = distance_to_b(i++, argc - len_a);
-		dist_a = distance_to_a(stack_a, temp->idx, len_a);
-		total_dist = ft_abs(dist_a) + ft_abs(dist_b);
-		if (dist_a > 0 && dist_b > 0)
-			total_dist -= get_smaller_num(dist_a, dist_b);
-		else if (dist_a < 0 && dist_b < 0)
-			total_dist += get_bigger_num(dist_a, dist_b);
-		if (total_dist < max_dist)
+		dist.b = distance_to_b(dist.i++, argc - dist.len_a);
+		dist.a = distance_to_a(stack_a, temp->idx, dist.len_a);
+		dist.total = ft_abs(dist.a) + ft_abs(dist.b);
+		if (dist.a > 0 && dist.b > 0)
+			dist.total -= small(dist.a, dist.b);
+		else if (dist.a < 0 && dist.b < 0)
+			dist.total += big(dist.a, dist.b);
+		if (dist.total < dist.max_dist)
 		{
-			max_dist = total_dist;
-			*r_a = dist_a;
-			*r_b = dist_b;
+			dist.max_dist = dist.total;
+			r_a_b[0] = dist.a;
+			r_a_b[1] = dist.b;
 		}
 		temp = temp->next;
 	}

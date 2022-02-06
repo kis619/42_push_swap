@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 14:12:38 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/06 22:01:29 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/07 00:14:26 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	main(int argc, char *argv[])
 	int		i;
 	t_list	*stack_a;
 	t_list	*stack_b;
-	
+	t_data	data;
+
 	i = 0;
 	if (argc > 1)
 		i = validate_input(argv);
@@ -32,7 +33,8 @@ int	main(int argc, char *argv[])
 	if (argc == 6)
 		sort_5(&stack_a, &stack_b);
 	ft_index(stack_a, argc - 2);
-	sort(&stack_a, &stack_b, argc - 1);
-
+	data = fill_data(&stack_a);
+	sort(&stack_a, &stack_b, data, argc - 1);
+	free_stack(&stack_a);
 	return (0);
 }
