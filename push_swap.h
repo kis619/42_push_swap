@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 14:10:40 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/06 15:59:14 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/06 20:49:31 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void sort(t_list **stack_a, t_list **stack_b, int argc);
 void choose_rotation(t_list **stack_a, t_list **stack_b, int r_a, int r_b);
 
 ////////////
-void initialise_b(t_list **stack_a, t_list **stack_b, int size, int argc);
+void initialise_b(t_list **stack_a, t_list **stack_b, int argc);
 void calculate_b_rotation(t_list *stack_a, t_list *stack_b, int *r_a, int *r_b, int argc);
 int	distance_to_b(int idx, int size);
 int distance_to_a(t_list *stack_a, int idx, int size);

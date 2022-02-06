@@ -711,7 +711,7 @@ void	print_list_1(t_list *node)
 	}
 	printf("\n");
 }
-void sort(t_list **stack_a, t_list **stack_b, int size)
+void sort(t_list **stack_a, t_list **stack_b, int argc)
 {
 	// int biggest_loop_n;
 	int stack_size;
@@ -728,8 +728,8 @@ void sort(t_list **stack_a, t_list **stack_b, int size)
 	groups = get_bigger_num(1, stack_size / 150);
 	group_size = stack_size / groups;
 	// print_list_1(*stack_a);
-	int i = 0;
-	while (cur_group <= groups + 1 && stack_size)
+	// int i = 0;
+	while (cur_group <= groups + 1)
 	// while (i < 5)
 	{
 		temp = closest_to_top(*stack_a, cur_group, group_size);
@@ -753,22 +753,24 @@ void sort(t_list **stack_a, t_list **stack_b, int size)
 		else if (!(*stack_a)->marked && distance_top == 0)
 		{
 			pb(stack_a, stack_b);
-			printf("bruv?\n");
+			// print_list(*stack_a);
+			// printf("bruv?\n");
 			stack_size--;
 		}
 		else if (cur_group == 1)
 			rr(stack_a, stack_b);
 		else
 		{
-			r_a = greater_num(-1, distance_top);
-			r_a = !greater_num(1, r_a);
+			r_a = get_bigger_num(-1, distance_top);
+			r_a = get_smaller_num(1, r_a);
 			choose_rotation(stack_a, stack_b, r_a, r_b);
 		}
 		// i++;
 	}
 	// printf("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
 	// print_list(*stack_b);
-	initialise_b(stack_a, stack_b, stack_size, size);
+	// printf("Confucion?");
+	initialise_b(stack_a, stack_b, argc);
 	// print_list(*stack_a);
 	// printf("Done with life!\n\n");
 }
@@ -845,7 +847,7 @@ void calculate_b_rotation(t_list *stack_a, t_list *stack_b, int *r_a, int *r_b, 
 
 }
 
-void initialise_b(t_list **stack_a, t_list **stack_b, int size, int argc)
+void initialise_b(t_list **stack_a, t_list **stack_b, int argc)
 {
 	int r_a;
 	int r_b;
@@ -1057,3 +1059,5 @@ int	main(int argc, char *argv[])
 
 	return (0);
 }
+
+
