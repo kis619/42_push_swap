@@ -57,19 +57,3 @@ void	ft_index(t_list *stack, int max_idx)
 		i = INT_MIN;
 	}
 }
-
-// int main (int argc, char *argv[])
-// {
-// 	t_list *stack;
-
-// 	stack = get_initial_input(argv);
-// 	ft_index(stack, argc - 2);
-// 	print_list(stack);
-// 	while (stack)
-// 	{
-// 		printf("%d ", (stack)->idx);
-// 		(stack) = (stack)->next;
-// 	}
-// 	// printf("%d\n", biggest(stack)->content);
-// 	// print_list(stack);
-// }

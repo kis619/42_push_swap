@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 14:10:40 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/06 20:49:31 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/06 22:18:53 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ typedef struct s_list
 	int				marked;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct stacks
+{
+	t_list *a;
+	t_list *b;
+}	t_stacks;
 
 t_list	*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
 void	ft_lstiter(t_list *lst, void (*f)(int));
@@ -79,6 +85,7 @@ int len_biggest_loop(t_list *stack, int mark);
 
 ///////////
 int get_bigger_num(int n1, int n2);
+int get_smaller_num(int n1, int n2);
 int ft_abs(int num);
 int curr_prox_is_smaller(int n1, int n2);
 int distance_to_top(t_list *stack_a, int idx);

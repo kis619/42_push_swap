@@ -6,21 +6,24 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 14:10:54 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/05 23:45:05 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/06 22:04:27 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_list *initial_element, int called)
+void	sa(t_list **stack, int called)
 {
-	int	second_cont;
+	t_list	*temp;
+	t_list	*third;
 
-	if (ft_lstsize(initial_element) < 2)
+	if (!*stack || !(*stack)->next)
 		return ;
-	second_cont = initial_element->next->content;
-	initial_element->next->content = initial_element->content;
-	initial_element->content = second_cont;
+	third = (*stack)->next->next;
+	temp = *stack;
+	*stack = (*stack)->next;
+	(*stack)->next = temp;
+	temp->next = third;
 	if (!called)
 		print_func_name(__func__);
 }

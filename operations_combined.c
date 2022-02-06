@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 14:28:13 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/02 11:21:35 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/06 21:17:02 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ss(t_list **stack_a, t_list **stack_b)
 {
-	sa(*stack_a, 1);
+	sa(stack_a, 1);
 	sb(*stack_b, 1);
 	print_func_name(__func__);
 }

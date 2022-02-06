@@ -13,7 +13,12 @@
 NAME = push_swap
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
-SRCs = main.c input_validation.c linked_lists.c linked_lists2.c operations_a.c operations_b.c operations_combined.c utils.c sort_5.c indexing.c sorting.c stack_b.c
+
+SRCs =	main.c indexing.c input_validation.c linked_lists.c \
+		linked_lists2.c operations_a.c operations_b.c \
+		operations_combined.c rotations.c small_math.c \
+		sort_small.c sorting.c stack_b.c utils.c
+
 OBJs := $(SRCs:.c=.o)
 LIBRARY = libft.a
 LIBPATH = libft
@@ -34,15 +39,3 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
-test:
-	gcc -Wall -Werror -Wextra main.c linked_lists2.c linked_lists.c operations_a.c operations_b.c operations_combined.c utils.c input_validation.c $(LIBPATH)/$(LIBRARY)
-
-optest:
-	gcc test_operations.c linked_lists2.c linked_lists.c operations_a.c operations_b.c operations_combined.c utils.c input_validation.c libft/libft.a
-
-sort5:
-	gcc sort_5.c linked_lists2.c linked_lists.c operations_a.c operations_b.c operations_combined.c utils.c input_validation.c libft/libft.a
-
-
-

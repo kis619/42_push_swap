@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:58:11 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/02 13:31:34 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/06 22:04:42 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	sb(t_list *stack_b, int called)
 void	pb(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*top_a;
-	
+
 	if (ft_lstsize(*stack_a) < 1)
 		return ;
 	top_a = *stack_a;
@@ -43,7 +43,6 @@ void	rb(t_list **stack_b, int called)
 	t_list	*last;
 	t_list	*second;
 
-
 	if (ft_lstsize(*stack_b) < 2)
 		return ;
 	top = *stack_b;
@@ -55,8 +54,6 @@ void	rb(t_list **stack_b, int called)
 	if (!called)
 		print_func_name(__func__);
 }
-
-
 
 void	rrb(t_list **stack_b, int called)
 {

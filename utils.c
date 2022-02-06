@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:30:39 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/05 10:29:05 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/06 21:57:29 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,7 @@ void print_func_name(const char *str)
 	write(1, ft_strjoin(str, "\n"), ft_strlen(str) + 1);
 }
 
-int sorted(t_list *stack)
+int curr_prox_is_smaller(int n1, int n2)
 {
-	int num;
-
-	num = stack->content;
-	while (stack)
-	{
-		if (stack->content < num)
-		{
-			// printf("Stack is not sorted\n");
-			return (0);
-		}
-		num = stack->content;
-		stack = stack->next;
-	}
-	// printf("Stack is sorted\n");
-	return (1);
+	return (ft_abs(n1) < ft_abs(n2));
 }
