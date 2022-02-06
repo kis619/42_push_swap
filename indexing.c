@@ -42,7 +42,6 @@ void	ft_index(t_list *stack, int max_idx)
 	i = INT_MIN;
 	while (-1 < max_idx)
 	{
-		printf("Max_idx = %d\n", max_idx);
 		while (stack)
 		{
 			if (stack->idx == -1 && stack->content > i)

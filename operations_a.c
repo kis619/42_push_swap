@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 14:10:54 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/02 12:52:27 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/05 23:45:05 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	sa(t_list *initial_element, int called)
 {
 	int	second_cont;
 
-	// print_list(initial_element);
 	if (ft_lstsize(initial_element) < 2)
 		return ;
 	second_cont = initial_element->next->content;
@@ -24,7 +23,6 @@ void	sa(t_list *initial_element, int called)
 	initial_element->content = second_cont;
 	if (!called)
 		print_func_name(__func__);
-	// print_list(initial_element);
 }
 
 void	pa(t_list **stack_a, t_list **stack_b)

@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 14:10:40 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/05 12:52:59 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/06 09:58:39 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_list
 {
 	int				content;
 	int				idx;
+	int				part_of_loop;
 	struct s_list	*next;
 }	t_list;
 
@@ -69,5 +70,31 @@ int mid_is_smallest(t_list *stack);
 void sort_5(t_list** stack_a, t_list** stack_b);
 void sort_2_3_4(t_list** stack_a, t_list** stack_b);
 ///////////////////MIGHT HAVE TO DELETE
+t_list	*get_highest_num(t_list *stack);
+void	ft_index(t_list *stack, int max_idx);
+
+///////////////////////////
+int find_loops(t_list *stack, t_list *beginning, int mark);
+int len_biggest_loop(t_list *stack, int mark);
+
+///////////
+int get_bigger_num(int n1, int n2);
+int ft_abs(int num);
+int curr_prox_is_smaller(int n1, int n2);
+int distance_to_top(t_list *stack_a, int idx);
+t_list *closest_to_top(t_list *stack, int group_n, int group_size);
+int time_to_swap(t_list *stack);
+
+////////////
+void sort(t_list **stack_a, t_list **stack_b);
+void choose_rotation(t_list **stack_a, t_list **stack_b, int r_a, int r_b);
+
+////////////
+void initialise_b(t_list **stack_a, t_list **stack_b, int size, int argc);
+void calculate_b_rotation(t_list *stack_a, t_list *stack_b, int *r_a, int *r_b, int argc);
+int	distance_to_b(int idx, int size);
+int distance_to_a(t_list *stack_a, int idx, int size);
+
+
 
 #endif
