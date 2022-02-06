@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 14:10:40 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/06 09:58:39 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/06 15:59:14 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_list
 {
 	int				content;
 	int				idx;
-	int				part_of_loop;
+	int				marked;
 	struct s_list	*next;
 }	t_list;
 
@@ -49,7 +49,7 @@ void print_func_name(const char *str);
 t_list	*get_initial_input(char *argv[]);
 
 //OPERATIONS
-void	sa(t_list *stack_a, int called);
+void	sa(t_list **stack_a, int called);
 void	ra(t_list **stack_a, int called);
 void	rra(t_list **stack_a, int called);
 void	sb(t_list *stack_b, int called);
@@ -86,7 +86,7 @@ t_list *closest_to_top(t_list *stack, int group_n, int group_size);
 int time_to_swap(t_list *stack);
 
 ////////////
-void sort(t_list **stack_a, t_list **stack_b);
+void sort(t_list **stack_a, t_list **stack_b, int argc);
 void choose_rotation(t_list **stack_a, t_list **stack_b, int r_a, int r_b);
 
 ////////////
