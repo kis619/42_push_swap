@@ -12,42 +12,57 @@
 
 NAME = push_swap
 NAME_BONUS = checker
-CC = gcc
-FLAGS = -Wall -Werror -Wextra
 
-SRCs =	main.c indexing.c input_validation.c linked_lists.c \
-		linked_lists2.c operations_a.c operations_b.c \
-		operations_combined.c rotations.c small_math.c \
-		sort_small.c sorting.c stack_b.c utils.c
+PUSH_MAIN = 		push_swap_all/main.c
 
-SRCs_BONUS = checker.c c_main.c
-OBJs_BONUS := $(SRCs:.c=.o)
-OBJs := $(SRCs:.c=.o)
+SRCs =				push_swap_all/operations_combined.c \
+					push_swap_all/indexing.c \
+					push_swap_all/input_validation.c \
+					push_swap_all/linked_lists.c \
+					push_swap_all/linked_lists2.c \
+					push_swap_all/operations_a.c \
+					push_swap_all/operations_b.c \
+					push_swap_all/rotations.c \
+					push_swap_all/small_math.c \
+					push_swap_all/sort_small.c \
+					push_swap_all/sorting.c \
+					push_swap_all/stack_b.c \
+					push_swap_all/utils.c
 
-LIBRARY = libft.a
-LIBPATH = libft
+SRCs_BONUS =		my_checker/c_main.c \
+					my_checker/checker.c \
+					get_next_line/get_next_line.c \
+					get_next_line/get_next_line_utils.c
+
+OBJ_PUSH_MAIN :=	$(PUSH_MAIN:.c=.o)
+OBJs := 			$(SRCs:.c=.o)
+OBJs_BONUS :=		$(SRCs_BONUS:.c=.o)
+
+FLAGS =				-Wall -Werror -Wextra
+CC =				gcc
+LIBRARY =			libft.a
+LIBPATH =			libft
 
 all: $(LIBRARY) $(NAME)
 
-bonus: $(LIBRARY) $(NAME_BONUS)
-
-$(NAME_BONUS): $(OBJs_BONUS) 
-	$(CC) $(FLAGS) $(SRCs_BONUS) -o $(NAME_BONUS) $(LIBPATH)/$(LIBRARY)
+bonus: $(OBJs_BONUS) $(LIBRARY)
+	$(CC) $(FLAGS) $(SRCs_BONUS) $(SRCs) -o $(NAME_BONUS) $(LIBPATH)/$(LIBRARY)
 
 $(LIBRARY): 
 	$(MAKE) -C $(LIBPATH)
 
-$(NAME): $(OBJs) 
-	$(CC) $(FLAGS) $(SRCs) -o $(NAME) $(LIBPATH)/$(LIBRARY)
+$(NAME): $(OBJs) $(OBJ_PUSH_MAIN)
+	$(CC) $(FLAGS) $(OBJ_PUSH_MAIN) $(OBJs) -o $(NAME) $(LIBPATH)/$(LIBRARY)
 
 clean:
 	$(RM) $(OBJs)
+	$(RM) $(OBJs_BONUS)
+	$(RM) $(OBJ_PUSH_MAIN)
 
 fclean: clean
 	$(MAKE) fclean -C $(LIBPATH)
 	$(RM) $(NAME)
+	$(RM) $(NAME_BONUS)
+	$(RM) *.exe
 
 re: fclean all
-
-test:
-	gcc c_main.c checker.c get_next_line.c get_next_line_utils.c indexing.c input_validation.c linked_lists.c linked_lists2.c operations_a.c operations_b.c operations_combined.c rotations.c small_math.c sort_small.c sorting.c stack_b.c utils.c libft/libft.a
