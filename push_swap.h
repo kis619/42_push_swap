@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 14:10:40 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/07 00:26:07 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/07 04:05:04 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_list	*ft_lstpenultimate(t_list *lst);
 void	sa(t_list **stack_a, int called);
 void	ra(t_list **stack_a, int called);
 void	rra(t_list **stack_a, int called);
-void	sb(t_list *stack_b, int called);
+void	sb(t_list **stack_b, int called);
 void	rb(t_list **stack_b, int called);
 void	rrb(t_list **stack_b, int called);
 void	ss(t_list **stack_a, t_list **stack_b);
@@ -73,8 +73,11 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 void	pa(t_list **stack_a, t_list **stack_b);
 void	pb(t_list **stack_a, t_list **stack_b);
 void	free_stack(t_list **list);
-
+void	pa_no_name(t_list **stack_a, t_list **stack_b);
+void	pb_no_name(t_list **stack_a, t_list **stack_b);
+void	operation_no_name(t_list **stack_a, t_list **stack_b, char trigger);
 //INPUT
+
 int		validate_input(char *l[]);
 int		is_an_integer(const char *str_num);
 void	print_func_name(const char *str);
@@ -108,4 +111,8 @@ int		curr_prox_is_smaller(int n1, int n2);
 int		distance_to_top(t_list *stack_a, int idx);
 t_list	*closest_to_top(t_list *stack, int group_n, int group_size);
 int		time_to_swap(t_list *stack);
+int		check_cmd(char *cmd, t_list **stack_a, t_list **stack_b);
+char	**get_instrucitons(void);
+int		execute_commands(char **cmd, t_list **stack_a, t_list **stack_b);
+void	free_all(char **arr, t_list *n1, t_list *n2);
 #endif

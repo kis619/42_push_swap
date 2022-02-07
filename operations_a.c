@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 14:10:54 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/06 22:04:27 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/07 03:36:53 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,15 @@ void	rra(t_list **stack_a, int called)
 	(*stack_a) = last;
 	if (!called)
 		print_func_name(__func__);
+}
+
+void	pa_no_name(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*top_b;
+
+	if (ft_lstsize(*stack_b) < 1)
+		return ;
+	top_b = *stack_b;
+	*stack_b = top_b->next;
+	ft_lstadd_front(stack_a, top_b);
 }
