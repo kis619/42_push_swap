@@ -78,7 +78,7 @@ void	free_all(char **arr, t_list *n1, t_list *n2)
 	free_stack(&n2);
 }
 
-char	**get_instrucitons(void)
+char	**get_instructions(void)
 {
 	char	*word;
 	char	**instructions;

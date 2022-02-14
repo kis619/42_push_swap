@@ -6,7 +6,7 @@
 /*   By: kmilchev <kmilchev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 14:10:40 by kmilchev          #+#    #+#             */
-/*   Updated: 2022/02/07 11:34:09 by kmilchev         ###   ########.fr       */
+/*   Updated: 2022/02/14 19:42:47 by kmilchev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int		distance_to_top(t_list *stack_a, int idx);
 t_list	*closest_to_top(t_list *stack, int group_n, int group_size);
 int		time_to_swap(t_list *stack);
 int		check_cmd(char *cmd, t_list **stack_a, t_list **stack_b);
-char	**get_instrucitons(void);
+char	**get_instructions(void);
 int		execute_commands(char **cmd, t_list **stack_a, t_list **stack_b);
 void	free_all(char **arr, t_list *n1, t_list *n2);
 #endif

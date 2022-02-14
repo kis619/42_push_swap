@@ -29,7 +29,7 @@ int	main(int argc, char *argv[])
 	}
 	stack_a = get_initial_input(argv);
 	stack_b = NULL;
-	instructions = get_instrucitons();
+	instructions = get_instructions();
 	i = execute_commands(instructions, &stack_a, &stack_b);
 	if (i == 1)
 		write(2, "Error\n", 6);
