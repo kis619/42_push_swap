@@ -12,3 +12,9 @@ bash run_tests.sh
 # MORE?
 Use -d flag to delete generated log files when you no longer need them:
 bash run_tests.sh -d
+
+# Work to be done:
+DRY: it is very stupid to have the same block of code 3 times, I KNOW, but the idea here was to do something quickly with no prior knowledge about bash.
+- figure out how to create permutations (or re-write in python)
+- make another loop so as not to repeat three times
+- format output to be prettier
