@@ -81,20 +81,20 @@ void	free_all(char **arr, t_list *n1, t_list *n2)
 char	**get_instrucitons(void)
 {
 	char	*word;
-	char	**instrucitons;
+	char	**instructions;
 	int		i;
 
 	i = 0;
-	instrucitons = malloc(sizeof(char *) * 9999);
+	instructions = malloc(sizeof(char *) * 9999);
 	word = malloc(sizeof(char *));
 	word = get_next_line(0);
 	while (word)
 	{
-		instrucitons[i] = word;
+		instructions[i] = word;
 		word = get_next_line(0);
 		i++;
 	}
 	free(word);
-	instrucitons[i] = NULL;
-	return (instrucitons);
+	instructions[i] = NULL;
+	return (instructions);
 }
