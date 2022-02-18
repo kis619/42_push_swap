@@ -12,24 +12,24 @@
 
 #include "push_swap.h"
 
-t_list	*get_highest_num(t_list *stack)
-{
-	int		i;
-	t_list	*biggest;
+// t_list	*get_highest_num(t_list *stack)
+// {
+// 	int		i;
+// 	t_list	*biggest;
 
-	biggest = NULL;
-	i = stack->content;
-	while (stack)
-	{
-		if (stack->content > i)
-		{
-			i = stack->content;
-			biggest = stack;
-		}
-		stack = stack->next;
-	}
-	return (biggest);
-}
+// 	biggest = NULL;
+// 	i = stack->content;
+// 	while (stack)
+// 	{
+// 		if (stack->content > i)
+// 		{
+// 			i = stack->content;
+// 			biggest = stack;
+// 		}
+// 		stack = stack->next;
+// 	}
+// 	return (biggest);
+// }
 
 void	ft_index(t_list *stack, int max_idx)
 {
@@ -38,7 +38,7 @@ void	ft_index(t_list *stack, int max_idx)
 	int		i;
 
 	first = stack;
-	biggest = get_highest_num(stack);
+// 	biggest = get_highest_num(stack);
 	i = INT_MIN;
 	while (-1 < max_idx)
 	{
