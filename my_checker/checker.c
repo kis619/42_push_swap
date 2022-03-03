@@ -86,7 +86,6 @@ char	**get_instructions(void)
 
 	i = 0;
 	instructions = malloc(sizeof(char *) * 9999);
-	word = malloc(sizeof(char *));
 	word = get_next_line(0);
 	while (word)
 	{
